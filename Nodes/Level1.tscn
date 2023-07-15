@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://rjrgwcughrrd"]
+
+[ext_resource type="Texture2D" uid="uid://hu4kmphomiug" path="res://icon.svg" id="1_efard"]
+[ext_resource type="PackedScene" uid="uid://c5y3hyjo44xoc" path="res://Nodes/Train.tscn" id="2_g8f5m"]
+
+[sub_resource type="Curve2D" id="Curve2D_f66ub"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 6, 1086, 0, 0, 0, 0, -10, 826, 0, 0, 0, 0, -67, 657, 0, 0, 0, 0, -105, 416, 0, 0, 0, 0, 44, 340, 0, 0, 0, 0, 200, 334, 0, 0, 0, 0, 286, 229, 0, 0, 0, 0, 425, 162, 0, 0, 0, 0, 610, 143, 0, 0, 0, 0, 667, -120, 0, 0, 0, 0, 657, -292, 0, 0, 0, 0, 349, -406, 0, 0, 0, 0, 178, -708, 0, 0, 0, 0, 200, -1092, 0, 0, 0, 0, 149, -1292)
+}
+point_count = 15
+
+[node name="Level1" type="Node2D"]
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_f66ub")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(6, 1086)
+rotation = -1.63226
+
+[node name="Train" parent="Path2D/PathFollow2D" instance=ExtResource("2_g8f5m")]
+position = Vector2(-21.4056, -10.3343)
+rotation = 1.63226
+scale = Vector2(1, 1)
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(73, 552)
+texture = ExtResource("1_efard")
+
+[node name="Icon2" type="Sprite2D" parent="."]
+position = Vector2(493, 353)
+texture = ExtResource("1_efard")
+
+[node name="Icon3" type="Sprite2D" parent="."]
+position = Vector2(523, -129)
+texture = ExtResource("1_efard")
+
+[node name="Icon4" type="Sprite2D" parent="."]
+position = Vector2(-290, 253)
+texture = ExtResource("1_efard")
+
+[node name="Icon5" type="Sprite2D" parent="."]
+position = Vector2(-32, -562)
+texture = ExtResource("1_efard")
+
+[node name="Icon6" type="Sprite2D" parent="."]
+position = Vector2(395, -999)
+texture = ExtResource("1_efard")
+
+[node name="Icon7" type="Sprite2D" parent="."]
+position = Vector2(21, -1064)
+texture = ExtResource("1_efard")
