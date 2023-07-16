@@ -1,12 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://c5y3hyjo44xoc"]
 
-[ext_resource type="Script" path="res://Scripts/Train.gd" id="1_ne4dw"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_ogofp"]
 [ext_resource type="Texture2D" uid="uid://hu4kmphomiug" path="res://icon.svg" id="1_rvjji"]
 
-[node name="Train" type="CharacterBody2D"]
-script = ExtResource("1_ne4dw")
+[node name="Player" type="CharacterBody2D"]
+floor_snap_length = 5.0
+script = ExtResource("1_ogofp")
 
-[node name="TrainCam" type="Camera2D" parent="."]
+[node name="PlayerCam" type="Camera2D" parent="."]
 position = Vector2(-2, -4)
 
 [node name="Icon" type="Sprite2D" parent="."]
