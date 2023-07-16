@@ -1,5 +1,5 @@
 extends CharacterBody2D
-var force = Vector2(400, 0)
+var force = Vector2(100, 0)
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

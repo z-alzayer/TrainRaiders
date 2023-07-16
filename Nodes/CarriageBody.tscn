@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://drjhw01edrptg"]
+[gd_scene load_steps=4 format=3 uid="uid://drjhw01edrptg"]
 
 [ext_resource type="Script" path="res://Scripts/Carriage_Body.gd" id="1_vcjlk"]
 [ext_resource type="Texture2D" uid="uid://dhpuagklhotck" path="res://Art/carriage_2.png" id="2_u7315"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fq5hc"]
+size = Vector2(313, 20)
 
 [node name="Carriage" type="Node2D"]
 
@@ -15,3 +18,9 @@ texture = ExtResource("2_u7315")
 position = Vector2(11, 18)
 scale = Vector2(0.668457, 0.698975)
 polygon = PackedVector2Array(278.253, 82.9787, 186.998, 170.249, 185.502, 227.476, 142.118, 263.243, 47.8714, 254.659, 25.4317, 184.556, -61.3353, 197.432, -65.8232, 250.367, -89.759, 254.659, -209.438, 244.644, -212.43, 177.403, -306.676, 77.256, -297.701, -188.848, -239.357, -247.505, 219.909, -254.659, 278.253, -174.541)
+
+[node name="Area2D" type="Area2D" parent="Carriage_Body"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Carriage_Body/Area2D"]
+position = Vector2(5.5, -149)
+shape = SubResource("RectangleShape2D_fq5hc")

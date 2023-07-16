@@ -9,6 +9,7 @@ script = ExtResource("1_ogofp")
 
 [node name="PlayerCam" type="Camera2D" parent="."]
 position = Vector2(-2, -4)
+drag_vertical_enabled = true
 
 [node name="Icon" type="Sprite2D" parent="."]
 texture = ExtResource("1_rvjji")

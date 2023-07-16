@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://rjrgwcughrrd"]
+[gd_scene load_steps=7 format=3 uid="uid://rjrgwcughrrd"]
 
 [ext_resource type="TileSet" uid="uid://doxhq354onhf0" path="res://Tilesets/Track.tres" id="1_cniuj"]
 [ext_resource type="PackedScene" uid="uid://c5y3hyjo44xoc" path="res://Nodes/Player.tscn" id="2_g8f5m"]
 [ext_resource type="PackedScene" uid="uid://drjhw01edrptg" path="res://Nodes/CarriageBody.tscn" id="3_nk5li"]
+[ext_resource type="Texture2D" uid="uid://ci5xd4qfarlyl" path="res://Art/Background_and_City.png" id="4_ftsdm"]
+[ext_resource type="Texture2D" uid="uid://d3vkow10biea" path="res://Art/Purple_Ruins.png" id="5_rr5ia"]
+[ext_resource type="Texture2D" uid="uid://2uwipqn7y2nr" path="res://Art/Black_Ruins.png" id="6_bget1"]
 
 [node name="Level1" type="Node2D"]
 
@@ -14,13 +17,59 @@ layer_0/tile_data = PackedInt32Array(131071, 2031616, 17, 196607, 2031616, 18, 2
 
 [node name="Player" parent="." instance=ExtResource("2_g8f5m")]
 position = Vector2(1343, -421)
+scale = Vector2(0.75, 0.75)
 floor_stop_on_slope = false
 floor_snap_length = 7.8
 
 [node name="Carriage" parent="." instance=ExtResource("3_nk5li")]
 z_index = -1
 position = Vector2(-254, -200)
+scale = Vector2(0.5, 0.5)
 
 [node name="Carriage2" parent="." instance=ExtResource("3_nk5li")]
 z_index = -1
 position = Vector2(1262, -200)
+scale = Vector2(0.5, 0.5)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scale = Vector2(10, 10)
+transform = Transform2D(10, 0, 0, 10, 0, 0)
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_repeat = 2
+position = Vector2(6, -73.7)
+motion_scale = Vector2(0.25, 0.1)
+motion_mirroring = Vector2(320, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("4_ftsdm")
+region_enabled = true
+region_rect = Rect2(0, 0, 320, 180)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_repeat = 2
+position = Vector2(6, -73.7)
+motion_scale = Vector2(0.3, 0.1)
+motion_mirroring = Vector2(320, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("5_rr5ia")
+region_enabled = true
+region_rect = Rect2(0, 0, 320, 180)
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_repeat = 2
+position = Vector2(6, -73.7)
+motion_scale = Vector2(0.2, 0.1)
+motion_mirroring = Vector2(320, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("6_bget1")
+region_enabled = true
+region_rect = Rect2(0, 0, 320, 180)
