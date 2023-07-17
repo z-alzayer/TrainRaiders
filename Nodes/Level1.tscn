@@ -10,6 +10,7 @@
 [node name="Level1" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
+texture_repeat = 2
 tile_set = ExtResource("1_cniuj")
 collision_animatable = true
 format = 2
@@ -39,37 +40,39 @@ transform = Transform2D(10, 0, 0, 10, 0, 0)
 texture_repeat = 2
 position = Vector2(6, -73.7)
 motion_scale = Vector2(0.25, 0.1)
-motion_mirroring = Vector2(320, 0)
+motion_mirroring = Vector2(640, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 texture_filter = 1
 texture_repeat = 2
 texture = ExtResource("4_ftsdm")
 region_enabled = true
-region_rect = Rect2(0, 0, 320, 180)
+region_rect = Rect2(0, 0, 640, 180)
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 texture_repeat = 2
 position = Vector2(6, -73.7)
 motion_scale = Vector2(0.3, 0.1)
-motion_mirroring = Vector2(320, 0)
+motion_mirroring = Vector2(640, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 texture_filter = 1
 texture_repeat = 2
 texture = ExtResource("5_rr5ia")
 region_enabled = true
-region_rect = Rect2(0, 0, 320, 180)
+region_rect = Rect2(0, 0, 640, 180)
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
 texture_repeat = 2
 position = Vector2(6, -73.7)
 motion_scale = Vector2(0.2, 0.1)
-motion_mirroring = Vector2(320, 0)
+motion_mirroring = Vector2(640, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
 texture_filter = 1
 texture_repeat = 2
 texture = ExtResource("6_bget1")
 region_enabled = true
-region_rect = Rect2(0, 0, 320, 180)
+region_rect = Rect2(0, 0, 640, 180)
+
+[node name="Camera2D" type="Camera2D" parent="ParallaxBackground"]
