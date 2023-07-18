@@ -1,41 +1,29 @@
-[gd_scene load_steps=9 format=3 uid="uid://rjrgwcughrrd"]
+[gd_scene load_steps=8 format=3 uid="uid://rjrgwcughrrd"]
 
+[ext_resource type="Script" path="res://Scripts/Level1.gd" id="1_rnaow"]
 [ext_resource type="PackedScene" uid="uid://c5y3hyjo44xoc" path="res://Nodes/Player.tscn" id="2_g8f5m"]
 [ext_resource type="PackedScene" uid="uid://drjhw01edrptg" path="res://Nodes/CarriageBody.tscn" id="3_nk5li"]
 [ext_resource type="Texture2D" uid="uid://ci5xd4qfarlyl" path="res://Art/Background_and_City.png" id="4_ftsdm"]
 [ext_resource type="Texture2D" uid="uid://d3vkow10biea" path="res://Art/Purple_Ruins.png" id="5_rr5ia"]
 [ext_resource type="Texture2D" uid="uid://2uwipqn7y2nr" path="res://Art/Black_Ruins.png" id="6_bget1"]
-[ext_resource type="Texture2D" uid="uid://drkkv5fmq72g6" path="res://Art/Track2.png" id="6_excou"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3n45g"]
-texture = ExtResource("6_excou")
-texture_region_size = Vector2i(32, 32)
-use_texture_padding = false
-0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -3.25, 16, -2.5, 16, 11.25, -16, 11.25)
-
-[sub_resource type="TileSet" id="TileSet_ifm1j"]
-tile_size = Vector2i(32, 32)
-physics_layer_0/collision_layer = 1
-sources/1 = SubResource("TileSetAtlasSource_3n45g")
+[ext_resource type="PackedScene" uid="uid://cbpxgr721ulth" path="res://Nodes/rail.tscn" id="6_yigcb"]
 
 [node name="Level1" type="Node2D"]
+script = ExtResource("1_rnaow")
 
 [node name="Player" parent="." instance=ExtResource("2_g8f5m")]
-position = Vector2(1343, -421)
-scale = Vector2(0.75, 0.75)
+position = Vector2(1151, -663)
+scale = Vector2(5, 5)
 floor_stop_on_slope = false
 floor_snap_length = 7.8
 
 [node name="Carriage" parent="." instance=ExtResource("3_nk5li")]
 z_index = 1
-position = Vector2(-254, -200)
+position = Vector2(-254, -392)
 
 [node name="Carriage2" parent="." instance=ExtResource("3_nk5li")]
 z_index = 1
-position = Vector2(1262, -200)
+position = Vector2(1351, -392)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scale = Vector2(10, 10)
@@ -82,10 +70,4 @@ region_rect = Rect2(0, 0, 640, 180)
 
 [node name="Camera2D" type="Camera2D" parent="ParallaxBackground"]
 
-[node name="TileMap" type="TileMap" parent="."]
-texture_filter = 1
-scale = Vector2(5, 5)
-tile_set = SubResource("TileSet_ifm1j")
-format = 2
-layer_0/name = "Track"
-layer_0/tile_data = PackedInt32Array(65550, 1, 0, 65552, 1, 0, 65548, 1, 0, 65547, 1, 0, 65549, 1, 0, 65551, 1, 0, 65546, 1, 0, 65545, 1, 0, 65544, 1, 0, 65543, 1, 0, 65542, 1, 0, 65541, 1, 0, 65540, 1, 0, 65539, 1, 0, 65538, 1, 0, 65537, 1, 0, 65536, 1, 0, 131071, 1, 0, 131070, 1, 0, 131069, 1, 0, 131068, 1, 0, 131067, 1, 0, 131066, 1, 0, 131065, 1, 0, 131064, 1, 0, 131063, 1, 0, 131062, 1, 0, 65553, 1, 0, 65554, 1, 0, 65555, 1, 0, 65556, 1, 0, 65557, 1, 0, 65558, 1, 0, 65559, 1, 0, 65560, 1, 0, 65561, 1, 0)
+[node name="Rail" parent="." instance=ExtResource("6_yigcb")]

@@ -13,3 +13,6 @@ func _process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	move_and_slide()
+
+func increase_speed(speed):
+	force = Vector2(speed, 0)
