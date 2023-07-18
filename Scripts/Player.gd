@@ -23,9 +23,9 @@ func _physics_process(delta):
 	
 	if velocity.x != 0:
 		_walking_animation.play()
-	
+		_walking_animation.play("default")
 	if velocity.x == 0:
-		_walking_animation.stop()
+		_walking_animation.play("idle")
 		
 
 	# Handle Jump.
