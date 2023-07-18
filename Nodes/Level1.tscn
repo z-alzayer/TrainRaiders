@@ -12,6 +12,7 @@
 script = ExtResource("1_rnaow")
 
 [node name="Player" parent="." instance=ExtResource("2_g8f5m")]
+z_index = 1
 position = Vector2(1151, -663)
 scale = Vector2(5, 5)
 floor_stop_on_slope = false
