@@ -2,13 +2,14 @@ extends CharacterBody2D
 
 @onready var animation = $AnimatedSprite2D
 @onready var timer = $Timer
-const SPEED = 1000
-const JUMP_VELOCITY = -400.0
+const SPEED = 500
+const JUMP_VELOCITY = -800.0
 
 var total_delta = 0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _ready():
+	velocity.y = JUMP_VELOCITY
 	animation.play("grenade")
 	timer.start()
 
@@ -19,9 +20,8 @@ func get_player_direction():
 
 func _process(delta):
 
-	velocity.x = SPEED * delta
+	velocity.x += SPEED * delta
 	move_and_slide()
-	print(self.position)
 #	while total_delta < 5:
 ##		velocity.y = JUMP_VELOCITY
 	if not is_on_floor():

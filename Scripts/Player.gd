@@ -5,8 +5,10 @@ var SPEED = 800.0
 const JUMP_VELOCITY = -700.0
 var double_jump
 var jump_counter
+var direction
 @onready var _walking_animation = $AnimatedSprite2D
 @onready var cat_animation = $Cat/AnimatedSprite2D
+@onready var position_node = $Node
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var grenade = preload("res://Nodes/Projectile.tscn")
@@ -49,7 +51,7 @@ func _physics_process(delta):
 		
 	if is_on_floor() and velocity.x == 0:
 
-		_walking_animation.stop()
+
 		_walking_animation.play("idle")
 		cat_animation.play("idle")
 		
@@ -68,16 +70,19 @@ func _physics_process(delta):
 		_walking_animation.scale.x = direction
 		velocity.x = direction * SPEED
 	else:
+		
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	apply_floor_snap()
 	move_and_slide()
 
 func throw_grenade():
+	
 	print("Throwing grenade")
-	var new_grenade = grenade.instantiate()
-	add_child(new_grenade)
 
-	new_grenade.position = self.position
+
+	var new_grenade = grenade.instantiate()
+	add_sibling(new_grenade)
+	new_grenade.position = Vector2(self.position.x + (_walking_animation.scale.x * 10), self.position.y)
 
 
 func _on_animated_sprite_2d_animation_finished():

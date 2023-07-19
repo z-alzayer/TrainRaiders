@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://di7plitop5pm5"]
+[gd_scene load_steps=4 format=3 uid="uid://di7plitop5pm5"]
 
 [ext_resource type="TileSet" uid="uid://doxhq354onhf0" path="res://Tilesets/Track.tres" id="1_ij3m5"]
 [ext_resource type="PackedScene" uid="uid://drjhw01edrptg" path="res://Nodes/CarriageBody.tscn" id="2_87v7s"]
+[ext_resource type="PackedScene" uid="uid://c5y3hyjo44xoc" path="res://Nodes/Player.tscn" id="3_3kfb8"]
 
 [node name="Track" type="Node2D"]
 
@@ -17,3 +18,6 @@ layer_0/tile_data = PackedInt32Array(655344, 2031616, 18, 720880, 2031616, 19, 7
 
 [node name="Carriage" parent="." instance=ExtResource("2_87v7s")]
 position = Vector2(-968, -177)
+
+[node name="Player" parent="." instance=ExtResource("3_3kfb8")]
+position = Vector2(-940, -522)

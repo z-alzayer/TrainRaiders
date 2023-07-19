@@ -149,8 +149,8 @@ animations = [{
 radius = 2.15407
 
 [node name="Projectile" type="CharacterBody2D"]
-z_index = 4
-scale = Vector2(5, 5)
+z_index = 5
+scale = Vector2(2, 2)
 script = ExtResource("1_qtu6m")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
