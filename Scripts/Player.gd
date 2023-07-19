@@ -14,34 +14,42 @@ func increase_speed(speed):
 
 func _ready():
 	double_jump = true
-	jump_counter = 2
+	jump_counter = 1
 
 func _physics_process(delta):
 	# Add the gravity.
+	print(jump_counter)
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	
-	if velocity.x != 0:
+	if velocity.x != 0 and is_on_floor():
 		_walking_animation.play()
 		_walking_animation.play("default")
-	if velocity.x == 0:
-		_walking_animation.play("idle")
-		
-
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept") and double_jump:
+
+		_walking_animation.play("jump")
+		_walking_animation.set_frame_and_progress(0,0)
 		velocity.y = JUMP_VELOCITY
-		jump_counter -= 1
+
+		
+#	if velocity.y < 0:
+#		_walking_animation.set_frame_and_progress(0,.5)
 	
 	if jump_counter == 0:
 		double_jump = false
 	
-	if is_on_floor():
+	if is_on_floor() and velocity.x == 0:
+
+		_walking_animation.stop()
+		_walking_animation.play("idle")
 		jump_counter = 1
 		double_jump = true
 	
 	if not is_on_floor():
-		_walking_animation.stop()
+		_walking_animation.play("jump")
+		jump_counter -= 1
+		
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -53,3 +61,8 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	apply_floor_snap()
 	move_and_slide()
+
+
+func _on_animated_sprite_2d_animation_finished():
+	print("emitting signal")
+	_walking_animation.stop()
