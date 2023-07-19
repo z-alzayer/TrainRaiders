@@ -32,7 +32,7 @@ func check_player_pos():
 		create_new_area(max_generated)
 		
 	if timeout > .65:
-		print("Creating carriage")
+
 		create_new_carriage()
 		timeout = 0
 		timeout_counter += 1
