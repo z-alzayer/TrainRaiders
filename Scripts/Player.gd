@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 
-var SPEED = 800.0
-const JUMP_VELOCITY = -700.0
+var SPEED = 750.0
+const JUMP_VELOCITY = -1000.0
 var double_jump
 var jump_counter
 var direction
@@ -48,14 +48,14 @@ func _physics_process(delta):
 	
 	if is_on_floor():
 		jump_counter = 1
-		
+		double_jump = true
 	if is_on_floor() and velocity.x == 0:
 
 
 		_walking_animation.play("idle")
 		cat_animation.play("idle")
 		
-		double_jump = true
+
 	
 	if not is_on_floor():
 		_walking_animation.play("jump")

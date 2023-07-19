@@ -10,6 +10,7 @@ var timeout = 0
 var total_delta = 0
 var player_speed = 800
 var timeout_counter = 0
+var carriage_list = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for i in range(-100, CONST_DIST + 1):
@@ -31,7 +32,7 @@ func check_player_pos():
 	if player.position.x > (tileset.local_to_map(Vector2i(max_generated, 0)).x / 2):
 		create_new_area(max_generated)
 		
-	if timeout > .65:
+	if timeout > 0.5:
 
 		create_new_carriage()
 		timeout = 0
@@ -40,9 +41,15 @@ func check_player_pos():
 func create_new_carriage():
 	var new_carriage = carriage.instantiate()
 	add_child(new_carriage)
+	carriage_list.append(new_carriage)
 	var body = new_carriage.find_child("Carriage_Body")
 	body.set_position(Vector2(player.position.x + 100, -10))
 	body.increase_speed(100 + (CARRIAGE_SPEED  * total_delta))
+	if len(carriage_list) > 100:
+		for i in range(1): 
+			carriage_list[i].queue_free()
+			carriage_list.remove_at(i)
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _process(delta):
